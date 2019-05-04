@@ -8,6 +8,7 @@ h1 {
     font-size: 5em;
     word-wrap: normal;
     text-transform: uppercase;
+    margin-bottom: -18px;
 }
 
 #content {
