@@ -58,12 +58,12 @@ def calculate():
             
             # period price
             daily_price = (pad * pad_price) + (tampon * tampon_price) + (liner * liner_price)
-            total_price = daily_price * lifetime
+            total_price = round(daily_price * lifetime, 2)
 
             # product count
-            pad_use = pad * lifetime
-            tampon_use = tampon * lifetime
-            liner_use = liner * lifetime
+            pad_use = round(pad * lifetime, 0)
+            tampon_use = round(tampon * lifetime, 0)
+            liner_use = round(liner * lifetime, 0)
 
 
             return render_template('result.html', price=total_price, pcount=pad_use,
