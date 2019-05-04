@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+
+{# replaces default content block #}
+{% block content %}
+
+    <div id="content">
+        <div class="price">You will spend ${{ price }} on menstrual products over your lifetime.</div>
+        <div class="count">
+            You will use {{ pcount }} pads, {{ tcount }} tampons, and {{ lcount }} pantiliners over your lifetime.
+        </div>
+
+        <form method="get" action="{{ url_for('main_page') }}">
+            <button class="go" type="submit">Try Again!</button>
+        </form>
+    </div>
+
+{% endblock %}
