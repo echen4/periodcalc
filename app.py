@@ -19,7 +19,7 @@ def main_page():
 # enter period info       
 @app.route('/calculate', methods=['POST', 'GET'])
 def enterInfo():
-    return render_template('location.html', title="Period Calculator")
+    return render_template('input.html', title="Period Calculator")
         
 
 # show calculator result       
