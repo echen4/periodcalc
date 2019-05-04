@@ -4,7 +4,9 @@ body {
 }
 
 h1 {
+    width: 100%;
     font-size: 69px;
+    word-wrap: normal;
     text-transform: uppercase;
     line-height: 0px;
 }
@@ -17,7 +19,7 @@ h1 {
 
 button.go {
     margin: 0 auto;
-    background: #ddd;
+    background: #eee;
     border: #fff 3px double;
     padding: 20px;
     font-family: Montserrat;
@@ -42,4 +44,8 @@ label {
 
 .credits a {
     color: #666;
+}
+
+#messages {
+    text-align: center;
 }
