@@ -3,10 +3,10 @@
 {# replaces default content block #}
 {% block content %}
     <div id="content">
-        <h1>Food Mood</h1>
-        <h2>Always in the mood for food</h2>
-        <p>Ever have that issue where your friends want to eat out,<br>but you just can't decide where to eat or even <i>what</i> to eat?<br>Now <b>Food Mood</b> can help you choose!</p>
-        <form method="get" action = "{{ url_for('pickLocation') }}">
+        <h1>Period Calculator</h1>
+
+        <p>Wonder how much you'll have to spend on menstrual products or how many menstrual products you'll use your entire lifetime? This period calculator will help you out!</p>
+        <form method="get" action = "{{ url_for('enterInfo') }}">
             <button class="go" type="submit">Let's Go!</button>
         </form>
     </div>

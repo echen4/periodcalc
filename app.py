@@ -13,23 +13,20 @@ app.secret_key = 'S3CR3T'
 @app.route('/', methods=['POST', 'GET'])
 def main_page():
     if request.method == "GET" or request.method == "POST":
-        return render_template('index.html', title="Food Mood: Welcome")
+        return render_template('index.html', title="Period Calculator")
         
 
-# pick location + add cuisine choices        
+# enter period info       
 @app.route('/calculate', methods=['POST', 'GET'])
-def pickLocation():
-    if request.method == "GET":
-        return render_template('location.html', title="Food Mood: Input")
-    else:
-        return render_template('location.html', title="Food Mood: Input")
+def enterInfo():
+    return render_template('location.html', title="Period Calculator")
         
 
-# show restaurant result        
+# show calculator result       
 @app.route('/result', methods=['POST', 'GET'])
 def calculate():
     if request.method == "GET":
-        return render_template('location.html', title="Food Mood: Result")
+        return render_template('input.html', title="Period Calculator: Your Results")
     else:
         # keep track if all inputs are valid
         success = True
@@ -41,27 +38,35 @@ def calculate():
             liner = int(request.form['liner'])
             period = int(request.form['period'])
             year = int(request.form['year'])
+            
+            # if one of the numbers is negative, then mark error
             if pad < 0 or tampon < 0 or liner < 0 or period < 0 or year < 0:
                 success = False
+        
+        # if there is a problem processing the form, mark error
         except ValueError:
             success = False
 
 
-        if success: # if successfully accessed yelp
+        if success: # if successfully parsed form
+            # product price
             pad_price = 0.20
             tampon_price = 0.19
             liner_price = 0.04
 
-            lifetime = period * year * 42
+            lifetime = period * year * 42 # calculates total # of period days
+            
+            # period price
             daily_price = (pad * pad_price) + (tampon * tampon_price) + (liner * liner_price)
             total_price = daily_price * lifetime
 
+            # product count
             pad_use = pad * lifetime
             tampon_use = tampon * lifetime
             liner_use = liner * lifetime
 
 
-            return render_template('result.html', tprice=total_price, pcount=pad_use,
+            return render_template('result.html', price=total_price, pcount=pad_use,
                                     tcount=tampon_use, lcount=liner_use,
                                     title="Your Period Calculator Results")
         else: # if unable to get results
