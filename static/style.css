@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 69px;
     text-transform: uppercase;
     line-height: 0px;
 }
@@ -17,12 +17,13 @@ h1 {
 
 button.go {
     margin: 0 auto;
-    background: #ccc;
+    background: #ddd;
     border: #fff 3px double;
     padding: 20px;
     font-family: Montserrat;
     text-transform: uppercase;
     letter-spacing: 1px;
+    opacity: 0.69;
 }
 
 label {
