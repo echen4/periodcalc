@@ -47,5 +47,6 @@ label {
 }
 
 #messages {
+    position: absolute;
     text-align: center;
 }
